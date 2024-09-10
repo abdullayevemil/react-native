@@ -9,6 +9,8 @@ import {
   StatusBar
 } from 'react-native';
 
+const currentBalance = 7429.23;
+
 export const App = () => {
   return (
     <SafeAreaView style={styles.container}>
@@ -33,6 +35,18 @@ export const App = () => {
           <Pressable style={styles.walletButton}>
             <Image source={require('./assets/icons/wallet.png')} />
           </Pressable>
+        </View>
+
+        <View style={styles.balanceContainer}>
+          <View style={styles.balanceDetails}>
+            <Text style={styles.balanceTitle}>Current Balance</Text>
+
+            <View style={styles.currentBalanceContainer}>
+              <Text style={styles.currency}>$</Text>
+
+              <Text style={styles.currentBalance}>{currentBalance}</Text>
+            </View>
+          </View>
         </View>
       </View>
     </SafeAreaView>
@@ -87,5 +101,35 @@ const styles = StyleSheet.create({
     height: 48,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  balanceContainer: {
+    height: 183,
+    gap: 8,
+  },
+  balanceDetails: {
+    marginHorizontal: 14,
+    alignItems: 'center',
+    gap: 8,
+    borderBottomWidth: 1,
+    borderColor: '#60515e',
+    paddingBottom: 8,
+  },
+  balanceTitle: {
+    fontSize: 18,
+    color: '#9c929b',
+    fontFamily: 'Clash Grotesk',
+  },
+  currentBalanceContainer: {
+    flexDirection: 'row',
+  },
+  currency: {
+    fontSize: 48,
+    color: '#c4bec3',
+    fontFamily: 'Clash Grotesk',
+  },
+  currentBalance: {
+    fontSize: 48,
+    color: 'white',
+    fontFamily: 'Clash Grotesk',
   },
 });
