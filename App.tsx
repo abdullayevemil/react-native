@@ -6,10 +6,73 @@ import {
     Image,
     Pressable,
     Text,
-    StatusBar,
+    StatusBar, FlatList,
 } from 'react-native';
 
 const currentBalance = 7429.23;
+
+const transactionsData = [
+    {
+        id: 1,
+        name: 'Spotify Premium',
+        time: 120,
+        amount: 20,
+    },
+    {
+        id: 2,
+        name: 'Steam Top Up',
+        time: 120,
+        amount: 150,
+    },
+    {
+        id: 3,
+        name: 'Amazon',
+        time: 120,
+        amount: 57,
+    },
+    {
+        id: 4,
+        name: 'Dribble Pro',
+        time: 120,
+        amount: 110,
+    },
+    {
+        id: 5,
+        name: 'Epic Games',
+        time: 120,
+        amount: 200,
+    },
+    {
+        id: 6,
+        name: 'Epic Games',
+        time: 120,
+        amount: 200,
+    },
+    {
+        id: 7,
+        name: 'Epic Games',
+        time: 120,
+        amount: 200,
+    },
+    {
+        id: 8,
+        name: 'Epic Games',
+        time: 120,
+        amount: 200,
+    },
+    {
+        id: 9,
+        name: 'Epic Games',
+        time: 120,
+        amount: 200,
+    },
+    {
+        id: 10,
+        name: 'Epic Games',
+        time: 120,
+        amount: 200,
+    },
+];
 
 const MyStatusBar = ({backgroundColor, ...props}) => (
     <View style={[styles.statusBar, {backgroundColor}]}>
@@ -20,6 +83,30 @@ const MyStatusBar = ({backgroundColor, ...props}) => (
 );
 
 export const App = () => {
+    const renderItem = ({item, index}) => {
+        return (
+            <View style={styles.transaction}>
+                <View style={styles.profile}>
+                    <View style={styles.galleryContainer}>
+                        <Image style={styles.galleryImage} source={require('./assets/icons/gallery.png')}/>
+                    </View>
+
+                    <View style={styles.transactionMainInfo}>
+                        <Text style={styles.transactionName}>{item.name}</Text>
+
+                        <Text style={styles.transactionTime}>{item.time} ago</Text>
+                    </View>
+                </View>
+
+                <View style={styles.transactionDetails}>
+                    <Text style={styles.transactionsAmount}>$</Text>
+
+                    <Text style={styles.transactionsAmount}>{item.amount}</Text>
+                </View>
+            </View>
+        );
+    };
+
     return (
         <>
             <MyStatusBar
@@ -34,6 +121,7 @@ export const App = () => {
                             <View style={styles.galleryContainer}>
                                 <Image style={styles.galleryImage} source={require('./assets/icons/gallery.png')}/>
                             </View>
+
                             <View>
                                 <Text style={styles.headerSubtitle}>Hello!</Text>
 
@@ -73,6 +161,20 @@ export const App = () => {
                     </View>
 
                     <View style={styles.dragDownLine}/>
+                </View>
+
+                <View style={styles.recentTransactionsContainer}>
+                    <View style={styles.transactionsHeader}>
+                        <Text style={styles.transactionsTitle}>Recent Transactions</Text>
+
+                        <Text style={styles.showAll}>Show All</Text>
+                    </View>
+
+                    <FlatList
+                        data={transactionsData}
+                        renderItem={renderItem}
+                        style={styles.transactions}
+                        contentContainerStyle={styles.contentContainer}/>
                 </View>
             </SafeAreaView>
         </>
@@ -199,5 +301,56 @@ const styles = StyleSheet.create({
         height: STATUSBAR_HEIGHT,
         backgroundColor: '#3A2636',
         paddingBottom: 32,
+    },
+    recentTransactionsContainer: {
+        gap: 24,
+        paddingHorizontal: 18,
+    },
+    transactionsHeader: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    transactionsTitle: {
+        fontSize: 20,
+        lineHeight: 24.6,
+        color: '#010101',
+    },
+    showAll: {
+        fontSize: 16,
+        lineHeight: 19.7,
+        color: '#5490A1',
+    },
+    transaction: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    transactionName: {
+        color: 'black',
+        fontSize: 16,
+        lineHeight: 19.7,
+        fontFamily: 'Clash Grotesk',
+    },
+    transactionTime: {
+        color: '#9c929b',
+        fontSize: 16,
+        fontFamily: 'Clash Grotesk',
+    },
+    transactionMainInfo: {
+        gap: 6,
+    },
+    transactionDetails: {
+        flexDirection: 'row',
+    },
+    transactionsAmount: {
+        fontSize: 20,
+        lineHeight: 24.6,
+    },
+    transactions: {
+        flexGrow: 1,
+    },
+    contentContainer: {
+        gap: 24,
+        flexGrow: 1,
     },
 });
