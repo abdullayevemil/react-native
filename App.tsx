@@ -174,7 +174,8 @@ export const App = () => {
                         data={transactionsData}
                         renderItem={renderItem}
                         style={styles.transactions}
-                        contentContainerStyle={styles.contentContainer}/>
+                        contentContainerStyle={styles.contentContainer}
+                        showsVerticalScrollIndicator={false}/>
                 </View>
             </SafeAreaView>
         </>
@@ -303,6 +304,7 @@ const styles = StyleSheet.create({
         paddingBottom: 32,
     },
     recentTransactionsContainer: {
+        flex: 1,
         gap: 24,
         paddingHorizontal: 18,
     },
@@ -322,6 +324,7 @@ const styles = StyleSheet.create({
         color: '#5490A1',
     },
     transaction: {
+        flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
@@ -347,7 +350,7 @@ const styles = StyleSheet.create({
         lineHeight: 24.6,
     },
     transactions: {
-        flexGrow: 1,
+        flex: 1,
     },
     contentContainer: {
         gap: 24,
