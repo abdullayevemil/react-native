@@ -145,6 +145,8 @@ export const App = () => {
                             </View>
                         </View>
 
+                        <View style={styles.line}></View>
+
                         <View style={styles.cardManagementContainer}>
                             <Pressable style={styles.cardManagementButton}>
                                 <Image style={styles.plusIcon} source={require('./assets/icons/plus-icon.png')}/>
@@ -207,7 +209,7 @@ const styles = StyleSheet.create({
         gap: 12,
     },
     galleryContainer: {
-        borderRadius: 9999,
+        borderRadius: 100,
         backgroundColor: '#DADADA',
         alignItems: 'center',
         justifyContent: 'center',
@@ -221,15 +223,13 @@ const styles = StyleSheet.create({
     headerSubtitle: {
         color: '#9c929b',
         fontSize: 16,
-        fontFamily: 'Clash Grotesk',
     },
     headerTitle: {
         color: 'white',
         fontSize: 18,
-        fontFamily: 'Clash Grotesk',
     },
     walletButton: {
-        borderRadius: 9999,
+        borderRadius: 100,
         borderColor: '#746772',
         borderWidth: 2,
         width: 48,
@@ -240,18 +240,15 @@ const styles = StyleSheet.create({
     balanceContainer: {
         gap: 24,
         alignItems: 'center',
+        width: '100%',
     },
     balanceDetails: {
         alignItems: 'center',
         gap: 8,
-        borderBottomWidth: 1,
-        borderColor: '#60515e',
-        paddingBottom: 8,
     },
     balanceTitle: {
         fontSize: 18,
         color: '#9c929b',
-        fontFamily: 'Clash Grotesk',
     },
     currentBalanceContainer: {
         flexDirection: 'row',
@@ -260,13 +257,11 @@ const styles = StyleSheet.create({
         fontSize: 48,
         lineHeight: 59,
         color: '#c4bec3',
-        fontFamily: 'Clash Grotesk',
     },
     currentBalance: {
         fontSize: 48,
         lineHeight: 59,
         color: 'white',
-        fontFamily: 'Clash Grotesk',
     },
     plusIcon: {
         width: 18,
@@ -285,6 +280,7 @@ const styles = StyleSheet.create({
         paddingVertical: 14,
         gap: 12,
         backgroundColor: 'rgba(255, 255, 255, 0.1)',
+        flex: 1,
     },
     addNewCard: {
         fontSize: 14,
@@ -295,7 +291,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(255, 255, 255, 0.5)',
         borderWidth: 2,
         borderColor: 'rgba(255, 255, 255, 0.5)',
-        borderRadius: 9999,
+        borderRadius: 100,
         alignSelf: 'center',
     },
     statusBar: {
@@ -332,12 +328,10 @@ const styles = StyleSheet.create({
         color: 'black',
         fontSize: 16,
         lineHeight: 19.7,
-        fontFamily: 'Clash Grotesk',
     },
     transactionTime: {
         color: '#9c929b',
         fontSize: 16,
-        fontFamily: 'Clash Grotesk',
     },
     transactionMainInfo: {
         gap: 6,
@@ -355,5 +349,11 @@ const styles = StyleSheet.create({
     contentContainer: {
         gap: 24,
         flexGrow: 1,
+    },
+    line: {
+        borderWidth: 1,
+        width: '90%',
+        borderColor: 'rgba(255, 255, 255, 0.2)',
+        borderRadius: 100,
     },
 });
